@@ -1,1 +1,0 @@
-mysql -e 'show processlist'
