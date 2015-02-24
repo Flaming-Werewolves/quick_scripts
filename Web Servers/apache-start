@@ -1,0 +1,2 @@
+ps axo user,lstart,cmd|awk '!/awk/&&/httpd|nginx|apache2/{if($1~/root/)print}'
+

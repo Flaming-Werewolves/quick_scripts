@@ -1,0 +1,1 @@
+mysqlbinlog /path/to/binlog | while read line;do curline=`echo $line|wc -c`; if [ "$curline" -gt "4000" ];then data=`echo "$line" | cut -c1-100`; echo "length: $curline Bytes - query: $data";fi; done

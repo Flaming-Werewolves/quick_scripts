@@ -1,0 +1,2 @@
+mysqldump --databases Fulfillment --tables scandata | gzip --fast > /root/Fulfillment-scandata.sql.gz
+

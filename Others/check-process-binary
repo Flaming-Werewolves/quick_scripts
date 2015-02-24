@@ -1,0 +1,5 @@
+This command can return false positives, such as /bin/sh not matching /bin/bash. This is ok. If the process claims to be httpd and it returns perl, however, this is not ok.
+
+
+for pid in `ps aux | grep -v '\[' | grep -v grep | awk '{print $2}' | grep -v PID`; do SERVICE=`ps aux | grep -v grep | grep " $pid " | awk '{print $11}' | egrep -v 'nimbus|delloma' | tr -d '-' | tr -d ':'`; [ "X$SERVICE" != "X" ] && ls -lh /proc/$pid | grep ' exe ' | tr -d '-' | grep -v $SERVICE >/dev/null 2>&1 && echo "$pid should be $SERVICE but it is actually `ls -lh /proc/$pid | grep ' exe ' | awk '{print $11}'`"; done
+

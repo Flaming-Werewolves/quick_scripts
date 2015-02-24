@@ -1,0 +1,6 @@
+ifenslave -c bond0 eth1 && ping -c5 `route -n | awk '/^0.0.0.0/{print $2}'`;\
+
+ifenslave -c bond0 eth0 && ping -c5 `route -n | awk '/^0.0.0.0/{print $2}'`;\
+
+tail -25 /var/log/messages | grep bonding && cat /proc/net/bonding/bond*
+

@@ -1,0 +1,32 @@
+SAN commands
+rescan luns
+For RHEL5 boxes, the rescan commands are as follows
+(Do Not do this on RHEL4 outside of a planned maintenance - there is risk of kernel panic)
+
+1. Run powermt display dev=all to determine the HBA numbers. The HBA numbers are the first item in each path entry and are to the left of the "qla2xxx"
+
+2. Run echo "- - -" > /sys/class/scsi_host/host#/scan for each HBA (substituting "#" with the appropriate HBA number)
+
+Warning: DO NOT run an issue_lip. This is unnecessary and will likely cause a DB outage and/or kernel panic.
+
+3. Run powermt display dev=all
+
+Verify that new LUN is present
+
+4. powermt update lun_names
+
+5. Run powermt save
+
+to make sure the new lun is saved.
+
+echo "- - -" > /sys/class/scsi_host/host1/scan
+
+echo "- - -" > /sys/class/scsi_host/host2/scan
+
+emcpdiscover
+
+Then run
+
+powermt display dev=all
+
+

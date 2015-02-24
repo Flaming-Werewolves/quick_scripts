@@ -1,0 +1,1 @@
+find . -type f -atime +24 -exec gzip '{}' \;

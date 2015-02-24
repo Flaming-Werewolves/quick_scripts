@@ -1,0 +1,6 @@
+netstat -plant|grep :80|awk '{print $5}'|cut -d: -f1|sort|uniq -c|sort -n
+
+cat /var/log/httpd/access_log | tail -2500 | awk '{print $1}' | sort -rn | uniq -c | sort -rn | head -40
+
+cat /var/log/httpd/access_log | tail -2500 | grep "GET /profile" | awk '{print $1}' | sort -rn | uniq -c | sort -rn | head -40
+

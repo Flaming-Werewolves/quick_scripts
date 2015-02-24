@@ -1,0 +1,2 @@
+netstat -np | awk '{print $7}' | awk -F/ '{count[$2]++}END{for(j in count) print count[j],j}' | sort -nr
+

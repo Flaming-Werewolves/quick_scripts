@@ -1,0 +1,2 @@
+find . -type f -exec du -h {} \; | sort -hrk 1 | head
+

@@ -1,0 +1,1 @@
+echo "=== Process Swap Usage ==="; for PID in $(ps -ef | awk '{print $2}'); do if [ -f /proc/$PID/smaps ]; then echo -n "PID [$PID] Process [`ps -p $PID -o comm --no-headers`]: "; grep ^Swap /proc/$PID/smaps | awk '{sum+=$2}END{print sum/1024" MB"}'; fi; done | sort -nrk5 | head -n20 | column -t

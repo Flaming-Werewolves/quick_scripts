@@ -1,0 +1,2 @@
+echo "show slave status\G"|mysql (-S /var/lib/mysql-db3/mysql.sock) | grep Seconds_Seconds_Behind_Master
+

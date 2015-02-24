@@ -1,0 +1,59 @@
+/etc/mail/spamassassin/local.cf
+
+# How many hits before a message is considered spam.
+
+#required_score           6
+
+# 12/2 request done by jerry
+
+#require_score            5.7
+
+# 12/6 request done by jerry
+
+#require_score            5.5
+
+# 12/7 request done by Laron
+
+require_score            5.3
+
+# Change the subject of suspected spam
+
+rewrite_header subject         [SPAM]
+
+# Encapsulate spam in an attachment (0=no, 1=yes, 2=safe)
+
+report_safe             1
+
+# Enable the Bayes system
+
+use_bayes               1
+
+# Enable Bayes auto-learning
+
+bayes_auto_learn              1
+
+# Enable or disable network checks
+
+skip_rbl_checks         0
+
+use_razor2              0
+
+use_dcc                 0
+
+use_pyzor               0
+
+# Mail using languages used in these country codes will not be marked
+# as being possibly spam in a foreign language.
+
+ok_languages            all
+
+# Mail using locales used in these country codes will not be marked
+
+# as being possibly spam in a foreign language.
+
+ok_locales              all
+
+# Ignore FH_DATE_PAST_20XX (was causing false positives)
+
+score FH_DATE_PAST_20XX 0.0
+

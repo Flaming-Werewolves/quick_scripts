@@ -1,0 +1,20 @@
+Oracle Stuff
+Oracle listener error
+
+From alert log ....
+
+08-NOV-2010 18:52:21 * service_died * ODS2 * 12547
+
+TNS-12547: TNS:lost contact
+
+See if oracle listener is up
+
+su - oracle
+lsnrctl status
+
+To get listener instance status
+
+lsnrctl status orcl (replace orcl with instance name)
+lsnrctl services
+tnsping <service name>
+

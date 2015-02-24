@@ -1,0 +1,1 @@
+memtot=`free -m | awk '$1 ~ /Mem/ {print $2}'`; echo -e "\nTime\t\tPercent\n";sar -r -s `date --date "-2 hours" +%T`|tail -n +4 |awk -v memtot="$memtot" '{printf "%s %s %8d % \n",$1,$2,(($4-$6-$7)/1024)*100/memtot}'|grep -v Average

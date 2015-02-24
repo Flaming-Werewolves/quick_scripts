@@ -1,0 +1,2 @@
+TOTAL=0; HTTP_LOGS=/var/log/httpd/; REGEX='17/Jun/2013:00:'; cd $HTTP_LOGS; for i in `grep -c $REGEX ./*log | cut -d: -f2`; do TOTAL=`echo "$TOTAL + $i" | bc`; done; echo $TOTAL
+

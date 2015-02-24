@@ -1,0 +1,4 @@
+addr=$(ip a s eth0 | grep -Po '(?<=inet ).*(?=\/)'); echo; echo "Internal IP --> External IP"; for i in $addr; do printf "$i --> "; curl http://icanhazip.com --interface $i; done
+
+hname=`hostname -s`;ifconfig | egrep -B1 "inet addr" | grep -v -B1 "127.0.0.1" |awk ' { if (/^eth|^bond/) print $1; else if(/inet addr/) print "- " $2 }' | sed ':a;N;$!ba;s/\n/ /g;s/addr://g;s/eth/\n'"$hname - "'eth/g;s/bond/\n'"$hname - "'bond/g;'
+

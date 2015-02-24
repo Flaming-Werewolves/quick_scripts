@@ -1,0 +1,2 @@
+clear;echo;date;echo "Top 10 Processes by CPU %";echo ""; ps -eo user,%cpu,%mem,rsz,args,pid,lstart|sort -rnk2|awk 'BEGIN {printf "%12s\t%s\t%s\t%s\t%s\n","USER","%CPU","%MEM","RSZ","COMMAND","PID","Started"}{printf "%12s\t%g'%'\t%g'%'\t%d MB\t%s\n",$1,$2,$3,$4/1024,$5}'|head -n10;echo; echo "== Last 90 mins ==";echo;sar|head -n3;sar -u|tail -n10;echo;sar -q|head -n3;sar -q|tail -n10;echo;echo "== Current 5 Second Intervals ==";echo;sar -u 5 12;echo;sar -q 5 12
+

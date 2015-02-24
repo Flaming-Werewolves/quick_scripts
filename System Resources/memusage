@@ -1,0 +1,1 @@
+cd /proc; MYSUM=0;for num in $(ls -d [0-9]*);do MEM=$(cat ./$num/status 2>/dev/null | grep VmRSS | awk '$1 ~ /VmRSS/ {print $2}');MYSUM=$((MYSUM+MEM));done;echo $MYSUM | awk '{printf "%s MB\n",$1/1024}'

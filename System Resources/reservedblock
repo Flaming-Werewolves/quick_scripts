@@ -1,0 +1,2 @@
+for DEV in `df | egrep '^/dev' | awk '{print $1}'`; do echo -n "$DEV =>  "; echo `dumpe2fs -h $DEV 2>/dev/null | grep 'lock count' | tr -t '\n' ' ' | awk '{printf "100*%s/%s", $3-$7, $3}'` | bc; done
+

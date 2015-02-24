@@ -1,0 +1,1 @@
+mysqladmin ext | awk '{ if ($2 ~ "pages_dirty") {dirty = $4} if ($2 ~ "pages_total") {total = l = $4}} END {printf "Dirty Pages\tTotal Pages\tPercentage Dirty\n%d\t\t%d\t\t%.2f%%\n",dirty,total,dirty/total * 100; }';

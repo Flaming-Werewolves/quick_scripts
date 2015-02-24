@@ -1,0 +1,1 @@
+find / -wholename '/proc' -prune -o -fprintf /root/perm.`date +%Y%m%d`.txt "chmod %m '%p'\nchown %u:%g '%p'\n"

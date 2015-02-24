@@ -1,0 +1,11 @@
+echo "- - -" > /sys/class/scsi_host/host0/scan
+
+^ Is bad, we can do better with lsscsi
+
+lsscsi
+[0:0:0:0]    disk    ATA      ST9250410AS      SDM1  /dev/sda 
+[1:0:0:0]    cd/dvd  TSSTcorp DVD+-RW TS-U633J D400  /dev/sr0 
+
+So to add a new disk, the host is the first 0. Increment the third number, so to add another disk to the above;
+
+"0 1 0" > /sys/class/scsi_host/host0/scan

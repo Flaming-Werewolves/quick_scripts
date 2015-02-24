@@ -1,0 +1,4 @@
+ALTER TABLE Fulfillment.scandata ENGINE='INNODB'
+
+SHOW CREATE TABLE Fulfillment.scandata\G
+

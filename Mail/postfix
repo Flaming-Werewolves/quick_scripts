@@ -1,0 +1,43 @@
+mail relay config using postfix
+
+service sendmail stop
+
+chkconfig sendmail off
+
+chkconfig postfix on
+
+service postfix start
+
+on mail.xxx.com:
+
+main.cf: added "relayhost = [10.101.2.52]"
+
+on mx01.xxx.com:
+
+main.cf: added "inet_interfaces = 10.101.2.52, localhost"
+
+main.cf: added "mynetworks = 10.101.2.49/32, 127.0.0.0/8"
+
+On mail, we told postfix to only send mail through 10.101.2.52 which is mxs01. On mx01, we had to specify postfix to listen on 10.101.2.52 (bond0 interface ip) and localhost. Then to only allow relay mail to come from my network and we specified the explicit address of mail.
+
+Authenticated mail relay config for one domain (Postfix)
+
+Intent: send outgoing mail normally, but use smtp auth for all mail to one or more domains
+
+main.cf:
+smtp_sasl_auth_enable   = yes
+smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+transport_maps = hash:/etc/postfix/transport
+
+/etc/postfix/sasl_passwd:
+relay_server_hostname   username:password
+
+/etc/postfix/transport:
+# make sure relay_server_port is encrypted (starttls/tls/whatever)!
+.tld.to.relay relay:[relay_server_hostname]:relay_server_port
+tld.to.relay relay:[relay_server_hostname]:relay_server_port
+* :  # route everyone else normally
+# postmap hash:/etc/postfix/transport
+# postmap hash:/etc/postfix/sasl_passwd
+# service postfix reload
+

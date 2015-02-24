@@ -1,0 +1,13 @@
+Cluser Fail over (work with any RH cluster service)
+
+'clustat' ~= Will show the status of the cluster
+
+'clusvcadm -R mysql-svc' ~= Will restart the mysql service in place on the same server
+
+'clusvcadm -r mysql-svc -m <node name>' ~= Will relocate the mysql service to that node
+
+'clusvcadm -d mysql-svc' ~= Will disable the mysql service
+
+'clusvcadm -e mysql-svc' ~= Will enable the mysql service
+
+

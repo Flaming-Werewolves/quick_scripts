@@ -1,0 +1,6 @@
+echo 1 > /proc/sys/vm/block_dump
+
+dmesg | sed 's/^\[.*\]//' | awk '/READ|WRITE|dirtied/ {print $1}'|  sort | uniq -c | sort -rn | head
+
+echo 0 > /proc/sys/vm/block_dump
+

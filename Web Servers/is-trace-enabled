@@ -1,0 +1,2 @@
+cat vhosts.80 | awk -F: '{printf"%s %s\n",$1,$2}' | while read ip port; do echo -e "\n\n-----Checking $ip $port-----\n\n"; echo -e "TRACE / HTTP/1.0\nHost: foo\nA: b\nC: d\n\n" | nc $ip $port; done
+
