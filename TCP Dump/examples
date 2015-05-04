@@ -178,3 +178,9 @@ Traffic with the 'Evil Bit' Set
 
 # tcpdump 'ip[6] & 128 != 0'
 
+
+# Capture http POST requests
+tcpdump -s 0 -A 'tcp dst port 80 and (tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x504f5354)'
+ 
+# Capture http GET requests
+tcpdump -s 0 -A 'tcp dst port 80 and tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420'

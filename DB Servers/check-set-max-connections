@@ -1,0 +1,4 @@
+select @@global.max_connections;
+show global variables like '%max_conn%'
+set global max_connections = 1000;
+

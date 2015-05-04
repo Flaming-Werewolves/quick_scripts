@@ -1,0 +1,4 @@
+omreport storage vdisk
+omreport storage pdisk controller=0
+
+
