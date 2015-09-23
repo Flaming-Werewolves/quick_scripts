@@ -4,3 +4,5 @@ cat /var/log/httpd/access_log | tail -2500 | awk '{print $1}' | sort -rn | uniq 
 
 cat /var/log/httpd/access_log | tail -2500 | grep "GET /profile" | awk '{print $1}' | sort -rn | uniq -c | sort -rn | head -40
 
+for each in netstat ps;do echo $each; for i in {30..1};do awk '{if (/2015-05-17/) printf "%s ", $0; else if (/java/) total +=1}END{print total}' /var/log/rs-sysmon/$each.log.$i;done ;done
+
