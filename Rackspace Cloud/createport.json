@@ -1,0 +1,12 @@
+{
+        "port": {
+                "admin_state_up": "true",
+                "device_id": "4366e479-ab75-49e4-a19d-105a8fcfbc2f",
+                "network_id": "611cf639-e2a6-4ae0-903a-a06b22162227",
+                "fixed_ips": [{
+                        "ip_address": "10.78.22.4",
+                        "subnet_id": "c5264fb8-ff24-4fb0-b5bb-9901b1854d8c"
+                }]
+        }
+}
+

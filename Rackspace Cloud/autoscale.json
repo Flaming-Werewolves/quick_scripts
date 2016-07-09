@@ -1,0 +1,22 @@
+{
+    "launchConfiguration": {
+        "args": {
+            "loadBalancers": [],
+            "server": {
+                "flavorRef": "general1-4",
+                "imageRef": "d9e47eac-a31c-4390-a405-1a299df598a1",
+                "metadata": {},
+                "name": "Mehar.me",
+                "config_drive": true,
+                "networks": [
+                    {
+                        "uuid": "00000000-0000-0000-0000-000000000000"
+                    },
+                    {
+                        "uuid": "11111111-1111-1111-1111-111111111111"
+                    }],
+            }
+        },
+        "type": "launch_server"
+    }
+}

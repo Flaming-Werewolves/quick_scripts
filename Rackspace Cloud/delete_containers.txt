@@ -1,0 +1,19 @@
+
+# Create vars for token
+ACCOUNT=
+USERNAME=
+API_KEY=
+EXPORT_REGION=
+
+# Generate a token
+TOKEN=$(curl -s -XPOST https://identity.api.rackspacecloud.com/v2.0/tokens -d'{"auth":{"RAX-KSKEY:apiKeyCredentials":{"username":"'$USERNAME'","apiKey":"'$API_KEY'"}}}' -H"Content-type:application/json" | python -c 'import sys,json;data=json.loads(sys.stdin.read());print data["access"]["token"]["id"]')
+
+# Containter endpoint
+EXPORT_CONTAINER_ENDPOINT=https://storage101.hkg1.clouddrive.com/v1/MossoCloudFS_0000
+
+# List containter contents and export to file
+curl -H "X-Auth-Token: $TOKEN" $EXPORT_CONTAINER_ENDPOINT/Container | tee container-files.txt
+
+# Send the request
+curl -i -X DELETE -H 'x-auth-token: $TOKEN' $EXPORT_CONTAINER_ENDPOINT/Container\?bulk-delete -T ./container-files.txt
+

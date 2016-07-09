@@ -1,0 +1,23 @@
+{
+    "groups": [
+        {
+            "id": "50561647-9f54-4f2d-86a1-38456512fcea",
+            "links": [
+                {
+                    "href": "https://lon.autoscale.api.rackspacecloud.com/v1.0/$ACCOUNT-NUMBER/groups/50561647-9f54-4f2d-86a1-38456512fcea/",
+                    "rel": "self"
+                }
+            ],
+            "state": {
+                "active": [],
+                "activeCapacity": 0,
+                "desiredCapacity": 0,
+                "name": "Mehar.me",
+                "paused": false,
+                "pendingCapacity": 0,
+                "status": "ACTIVE"
+            }
+        }
+    ],
+    "groups_links": []
+}

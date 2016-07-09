@@ -1,0 +1,6 @@
+supernova myneutron port-list --device-id=23c58a9d-de87-473c-9ad0-57c4f63eccb5
+supernova myneutron port-list --device-id=7f76738a-1373-4f4f-8703-9fdf11c06428
+
+supernova myneutron ip-address-create --port-id c23f39d2-72e0-4239-9281-732dc9b7ed08 --port-id 65028307-b270-4171-a333-ee2e88674786 --tenant-id 123456789 00000000-0000-0000-0000-000000000000 4
+
+
